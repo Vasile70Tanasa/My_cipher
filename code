@@ -1,0 +1,22 @@
+from itertools import zip_longest
+import math
+from string import ascii_lowercase as al
+from string import ascii_uppercase as au
+
+alph = ''.join(x+y for x, y in zip(al, au))
+
+def my_cipher(text):
+    key = len(text)
+    step1 = text[::2] + text[1::2][::-1]
+    return ''.join(alph[(alph.index(ch)+key)%52] if ch in alph else ch for ch in step1)
+
+print(my_cipher('my_cipher'))
+
+def my_decipher(text):
+    key = len(text)
+    step1 = ''.join(alph[(alph.index(ch)-key)%52] if ch in alph else ch for ch in text)
+    a = step1[:math.ceil(key / 2)]
+    b = step1[math.ceil(key / 2):][::-1]
+    return ''.join([x+y for x, y in zip_longest(a, b, fillvalue = ' ')]).strip()
+
+print(my_decipher(my_cipher('my_cipher')))
