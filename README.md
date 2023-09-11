@@ -1,6 +1,6 @@
 Step 1
 
-MyCipher splits the original text în two substrings: the first one is composed of characters having even indices in the original text and the second from characters having odd indices in the original text.
+MyCipher splits the original text in two substrings: the first one is composed of characters having even indices in the original text and the second from characters having odd indices in the original text.
 
 Ex: original text = ‘abcdef’
 first string = ‘ace’ (indices: 0, 2, 4)
